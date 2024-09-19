@@ -43,8 +43,8 @@ class Program
 
             Console.WriteLine($"Recebi uma mensagem de {message.Chat.FirstName}: {message.Text}");
 
-            // Verificar perguntas sobre o Rio de Janeiro
-            string resposta = ProcessarPerguntaSobreRio(message.Text.ToLower());
+            // Verificar perguntas sobre o paciente
+            string resposta = ProcessarPerguntaSobrePaciente(message.Text.ToLower());
 
             // Enviar a resposta para o usuário
             await botClient.SendTextMessageAsync(
@@ -54,8 +54,8 @@ class Program
         }
     }
 
-    // Método para processar perguntas relacionadas ao Rio de Janeiro
-    private static string ProcessarPerguntaSobreRio(string pergunta)
+    // Método para processar perguntas relacionadas ao paciente
+    private static string ProcessarPerguntaSobrePaciente(string pergunta)
     {
         if (pergunta.Contains("oi") || pergunta.Contains("ola"))
         {
@@ -88,6 +88,42 @@ class Program
         else if (pergunta.Contains("tchau") || pergunta.Contains("adeus") || pergunta.Contains("até mais"))
         {
             return "Até mais! Se precisar de mim novamente, estarei por aqui.";
+        }
+        else if (pergunta.Contains("exercício") || pergunta.Contains("atividade física"))
+        {
+            return "Você pratica algum exercício regularmente? Exercícios podem ajudar muito com sua saúde.";
+        }
+        else if (pergunta.Contains("alimentação") || pergunta.Contains("comida") || pergunta.Contains("nutrição"))
+        {
+            return "Uma alimentação saudável é essencial para o bem-estar. Você tem alguma dúvida sobre sua dieta?";
+        }
+        else if (pergunta.Contains("sono") || pergunta.Contains("dormir"))
+        {
+            return "O sono é fundamental para a saúde. Quantas horas de sono você costuma ter por noite?";
+        }
+        else if (pergunta.Contains("estresse") || pergunta.Contains("ansiedade"))
+        {
+            return "Entendo que o estresse pode ser difícil. Você gostaria de algumas dicas para relaxar?";
+        }
+        else if (pergunta.Contains("hidratação") || pergunta.Contains("água"))
+        {
+            return "Beber água suficiente é muito importante. Quantos copos de água você bebe por dia?";
+        }
+        else if (pergunta.Contains("pressão") || pergunta.Contains("pressão alta") || pergunta.Contains("hipertensão"))
+        {
+            return "Você está monitorando sua pressão arterial? É importante manter ela controlada.";
+        }
+        else if (pergunta.Contains("diabetes") || pergunta.Contains("açúcar no sangue") || pergunta.Contains("glicose"))
+        {
+            return "Como está sua glicemia? Monitorar o nível de açúcar no sangue é essencial para quem tem diabetes.";
+        }
+        else if (pergunta.Contains("covid") || pergunta.Contains("corona") || pergunta.Contains("vírus"))
+        {
+            return "Você está apresentando algum sintoma de COVID-19, como febre, tosse ou falta de ar?";
+        }
+        else if (pergunta.Contains("vacina") || pergunta.Contains("vacinação"))
+        {
+            return "As vacinas são importantes para prevenir doenças. Você está com suas vacinas em dia?";
         }
         else
         {
